@@ -1,7 +1,7 @@
 # buildvocab.py
 
 import argparse
-import cPickle
+import Pickle
 import operator
 from collections import Counter
 
@@ -59,7 +59,7 @@ def save(name, voc):
         newvoc[v] = i
 
     fd = open(name, "wb")
-    cPickle.dump(newvoc, fd, cPickle.HIGHEST_PROTOCOL)
+    Pickle.dump(newvoc, fd, Pickle.HIGHEST_PROTOCOL)
     fd.close()
 
 
@@ -160,7 +160,7 @@ def buildvocab(args):
 
     if args.limit != 0:
         vocab = vocab[:args.limit]
-        print "coverage: ", coverage(vocab, counts) * 100, "%"
+        print("coverage: ", coverage(vocab, counts) * 100, "%")
 
     if args.alpha:
         n = len(tokens)
